@@ -36,7 +36,8 @@ catkin_make
 source ~/.bashrc
 
 echo "Configuring environment"
-echo 'ACTION=="add", KERNEL=="i2c-[0-1]*", MODE="0666"' | sudo tee /etc/udev/rules.d/local.rules
+sudo cp local.rules /etc/udev/rules.d/
+sudo cp orbbec-usb.rules /etc/udev/rules.d/
 
 sudo apt-get upgrade -y
 sudo apt-get dist-upgrade -y
