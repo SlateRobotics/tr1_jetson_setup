@@ -21,7 +21,7 @@ rosdep update
 echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 source ~/.bashrc
 sudo apt-get install python-rosinstall python-rosinstall-generator python-wstool build-essential xboxdrv -y
-sudo apt-get install ros-kinetic-moveit ros-kinetic-joy ros-kinetic-ros-control ros-kinetic-ros-controllers -y
+sudo apt-get install ros-kinetic-moveit ros-kinetic-joy ros-kinetic-ros-control ros-kinetic-ros-controllers ros-kinetic-astra-camera ros-kinetic-astra-launch -y
 
 echo "Installing TR1 Packages"
 mkdir ~/ros_ws
