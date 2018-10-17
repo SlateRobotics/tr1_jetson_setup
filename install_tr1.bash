@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
+while true; do
+	read -p "You must enable main, universe, restricted, and multiverse repositories in the Software & Updates program to continue. If you try to run this without doing so, you will have a bad time. Have you completed this? [y/n] `echo $'\n> '`" yn
+	case $yn in
+		[Yy]* ) break;;
+		[Nn]* ) exit;;
+		* ) echo "Please answer yes or no.";;
+	esac
+done
+
 sudo apt-get update
-sudo apt-get upgrade -y
 
 echo "Installing ROS Kinetic"
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -30,5 +38,7 @@ source ~/.bashrc
 echo "Configuring environment"
 echo 'ACTION=="add", KERNEL=="i2c-[0-1]*", MODE="0666"' | sudo tee /etc/udev/rules.d/local.rules
 
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade -y
 
 echo "Install complete. You may now reboot the device"
